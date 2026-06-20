@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GasExpres - Recarga de Gas en Montería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap');
+
+        :root {
+            --neon-green: #00ff9d;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at center, #0a1f1a 0%, #000000 80%);
+        }
+
+        canvas#particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.85;
+        }
+
+        .content-over {
+            position: relative;
+            z-index: 2;
+        }
+
+        .neon-text {
+            text-shadow: 
+                0 0 10px var(--neon-green),
+                0 0 20px var(--neon-green),
+                0 0 40px var(--neon-green),
+                0 0 80px #00cc7a;
+        }
+
+        .glass {
+            background: rgba(15, 35, 30, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+
+        .glow-button {
+            transition: all 0.4s ease;
+        }
+        
+        .glow-button:hover {
+            box-shadow: 0 0 30px #00ff9d,
+                        0 0 50px #00ff9d;
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="bg-black/80 backdrop-blur-lg border-b border-emerald-500/30 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-2xl flex items-center justify-center text-4xl shadow-lg shadow-emerald-500/50 border border-emerald-300/30">
+                    ⚡
+                </div>
+                <div>
+                    <h1 class="title-font text-4xl font-bold tracking-tighter neon-text">GASEXPRES</h1>
+                    <p class="text-xs text-emerald-400 tracking-[3px] -mt-1">MONTERÍA</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-10 text-lg">
+                <a href="#" class="hover:text-emerald-400 transition">Inicio</a>
+                <a href="#servicios" class="hover:text-emerald-400 transition">Servicios</a>
+                <a href="#zonas" class="hover:text-emerald-400 transition">Zonas</a>
+                <a href="#contacto" class="hover:text-emerald-400 transition">Contacto</a>
+            </nav>
+
+            <a href="https://wa.me/573001234567" target="_blank"
+               class="bg-emerald-500 hover:bg-emerald-400 text-black px-7 py-3.5 rounded-2xl font-semibold flex items-center gap-3 glow-button">
+                <i class="fab fa-whatsapp text-xl"></i>
+                <span>Pedir Recarga</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO FUTURISTA -->
+    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <canvas id="particles"></canvas>
+        
+        <div class="max-w-7xl mx-auto px-6 py-28 content-over">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <div class="inline-flex items-center gap-3 px-6 py-3 glass rounded-full">
+                        <div class="w-4 h-4 bg-emerald-400 rounded-full animate-ping"></div>
+                        <span class="font-medium text-emerald-300">Servicio Futurista • Entrega Rápida en Montería</span>
+                    </div>
+
+                    <h2 class="title-font text-6xl md:text-7xl font-bold leading-none tracking-tighter neon-text">
+                        RECARGA TU GAS<br>
+                        <span class="text-emerald-400">AL INSTANTE</span>
+                    </h2>
+
+                    <p class="text-2xl text-gray-300 max-w-lg">
+                        GasExpres: Tecnología avanzada, recargas seguras y entrega express en toda Montería.
+                    </p>
+
+                    <div class="flex flex-wrap gap-5">
+                        <a href="#contacto" 
+                           class="glow-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-black px-10 py-6 rounded-3xl font-bold text-xl flex items-center gap-3">
+                            SOLICITAR RECARGA
+                            <i class="fas fa-bolt"></i>
+                        </a>
+                        
+                        <a href="https://wa.me/573001234567" target="_blank"
+                           class="glass px-8 py-6 rounded-3xl font-semibold text-xl flex items-center gap-3 hover:border-emerald-400">
+                            <i class="fab fa-whatsapp text-3xl text-emerald-400"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-8 text-sm">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-emerald-400"></i>
+                            <span>Nequi • PSE</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-emerald-400"></i>
+                            <span>Domicilio Toda Montería</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-emerald-400"></i>
+                            <span>24/7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="glass rounded-3xl p-4 shadow-2xl">
+                        <img src="https://picsum.photos/id/1015/800/620" alt="Recarga de pipeta GasExpres" 
+                             class="rounded-2xl w-full shadow-inner">
+                    </div>
+                    <div class="absolute -top-6 -left-6 bg-black/80 px-6 py-4 rounded-2xl border border-emerald-400 text-center">
+                        <p class="text-4xl font-bold text-emerald-400">⚡</p>
+                        <p class="text-sm font-medium">Llegada en 40 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Líneas futuristas -->
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-5xl font-bold neon-text">Nuestros Servicios</h2>
+                <p class="text-emerald-400 mt-3">Tecnología de vanguardia para tu seguridad</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-3xl p-8 hover:border-emerald-400 transition-all group">
+                    <div class="text-6xl mb-6">🟩</div>
+                    <h3 class="text-2xl font-semibold mb-3">Recarga Rápida</h3>
+                    <p class="text-gray-400">Pipetas de 40, 60 y 100 libras con gas de alta pureza.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 hover:border-emerald-400 transition-all group">
+                    <div class="text-6xl mb-6">🚀</div>
+                    <h3 class="text-2xl font-semibold mb-3">Servicio Express</h3>
+                    <p class="text-gray-400">Entrega en menos de 40 minutos en Montería.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 hover:border-emerald-400 transition-all group">
+                    <div class="text-6xl mb-6">🔄</div>
+                    <h3 class="text-2xl font-semibold mb-3">Cambio Inmediato</h3>
+                    <p class="text-gray-400">Retiro de vacía y entrega de recargada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONAS -->
+    <section id="zonas" class="py-24 bg-gradient-to-b from-zinc-900 to-black">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="title-font text-5xl font-bold mb-8 neon-text">Cubrimos Toda Montería</h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Barrios: Centro, La Castellana, Rancho Grande, El Amparo, La Floresta, Urbanización y más.
+            </p>
+            <div class="mt-12 inline-flex items-center gap-4 bg-black/60 px-10 py-6 rounded-3xl border border-emerald-500/30">
+                <span class="text-5xl">📍</span>
+                <div class="text-left">
+                    <p class="font-semibold text-emerald-400">Montería • Córdoba</p>
+                    <p class="text-sm text-gray-400">Domicilio exprés en toda la ciudad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGOS -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Pago Digital Rápido</h2>
+            <div class="flex flex-wrap justify-center gap-16 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="text-7xl mb-4">📱</div>
+                    <h3 class="text-2xl font-semibold">Nequi</h3>
+                    <p class="text-emerald-400">Instantáneo</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-7xl mb-4">🏦</div>
+                    <h3 class="text-2xl font-semibold">PSE</h3>
+                    <p class="text-emerald-400">Seguro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-28 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto glass rounded-3xl p-16 text-center">
+                <h2 class="title-font text-5xl font-bold mb-6 neon-text">¿Necesitas Gas Ahora?</h2>
+                <p class="text-2xl text-emerald-300 mb-10">Contáctanos y recibe tu recarga en minutos</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="https://wa.me/573001234567" target="_blank"
+                       class="bg-emerald-500 hover:bg-emerald-400 text-black py-8 rounded-3xl text-2xl font-bold flex items-center justify-center gap-4 glow-button">
+                        <i class="fab fa-whatsapp text-4xl"></i>
+                        <div>WhatsApp<br><span class="text-lg">300 123 4567</span></div>
+                    </a>
+                    
+                    <div class="bg-zinc-900 py-8 rounded-3xl text-2xl font-bold flex flex-col items-center justify-center gap-2 border border-emerald-500/30">
+                        <i class="fas fa-phone text-4xl text-emerald-400"></i>
+                        <div>(604) 123 4567</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-2xl flex items-center justify-center text-4xl">⚡</div>
+                <h1 class="title-font text-4xl font-bold neon-text">GASEXPRES</h1>
+            </div>
+            <p class="text-emerald-400">Recarga de Pipetas de Gas • Montería, Córdoba</p>
+            <p class="text-xs text-gray-500 mt-8">© 2026 GasExpres - Tecnología al servicio de tu hogar</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fondo dinámico futurista (partículas verdes)
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.8 + 0.6;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.speedY = Math.random() * 0.8 - 0.4;
+                this.opacity = Math.random() * 0.6 + 0.4;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(0, 255, 157, ${this.opacity})`;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = "#00ff9d";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 220; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let particle of particles) {
+                particle.update();
+                particle.draw();
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        resizeCanvas();
+        initParticles();
+        animate();
+    </script>
+</body>
+</html>
